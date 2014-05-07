@@ -1,0 +1,85 @@
+%heading {
+  margin-bottom: 0.25em;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+@mixin col-2 {
+  float: left;
+  width: 48%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+@mixin col-3 {
+  float: left;
+  width: 30%;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+}
+
+@mixin col-4 {
+  float: left;
+  width: 22%;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+}
+
+body{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: #333;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  @extend %heading;
+}
+
+h2 {
+  font-size: 2em;
+  @extend %heading;
+}
+
+h3 {
+  font-size: 1.5em;
+  @extend %heading;
+}
+
+h4 {
+  font-size: 1.25em;
+  @extend %heading;
+}
+
+h5 {
+  @extend %heading;
+}
+
+h6 {
+  font-size: 0.85em;
+  @extend %heading;
+}
+
+p, address {
+  margin-bottom: 1.5em;
+  line-height: 1.5;
+}
+
+small {
+  font-size: 0.85em;
+}
+
+.placeholder {
+  display: table;
+  width: 100%;
+  padding: 1em;
+  text-align: center;
+  background-color: #ccc;
+  span {
+    display: table-cell;
+    font-size: 1.25em;
+    vertical-align: middle;
+    color: #666;
+  }
+}

@@ -9,8 +9,15 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
+          'assets/css/wireframe.css': 'src/scss/wireframe.scss',
           'assets/css/style.css': 'src/scss/style.scss'
         }
+      }
+    },
+    watch: {
+      sass: {
+        files: ['src/scss/*.scss', 'src/scss/wireframe/*.scss'],
+        tasks: ['sass']
       }
     }
   });
@@ -18,6 +25,7 @@ module.exports = function(grunt) {
   // Load task plugins
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   
   // Default task(s).
   grunt.registerTask('default', ['sass']);

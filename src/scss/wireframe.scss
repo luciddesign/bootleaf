@@ -1,0 +1,57 @@
+@import 'wireframe/_reset.scss';
+@import 'wireframe/_base.scss';
+
+%wrapper {
+  overflow: auto;
+  width: 96%;
+  margin: auto;
+  text-align: left;
+  @media (min-width: 75em) {
+    width: 90%;
+  }
+  @media (min-width: 94em) {
+    width: 85%;
+  }
+}
+
+#site-header {
+  width: 100%;
+  padding: 1em;
+  text-align: left;
+  background-color: #ccc;
+}
+
+nav {
+ @extend %wrapper;
+  li {
+    display: inline-block;
+  }
+}
+
+.content {
+   @extend %wrapper;
+}
+
+.contact {
+  margin: 3em auto;
+  text-align: center;
+}
+
+.contact--branch {
+  margin-bottom: 1.5em;
+  text-align: left;
+  @media (min-width: 50em) {
+    @include col-2;
+  }
+  @media (min-width: 105em) {
+    @include col-3;
+  }
+  @media (min-width: 135em) {
+    @include col-4;
+  }
+}
+
+article {
+  max-width: 50em;
+  margin: auto;
+}

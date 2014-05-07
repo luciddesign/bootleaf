@@ -1,1 +1,5 @@
-index
+{% capture content %}
+  <h1>{{ title }}</h1>
+  {{ body }}
+{% endcapture %}
+{% include 'layouts/default' %}

@@ -1,3 +1,23 @@
+{% capture content %}
+  
+  <div class="placeholder" style="height:300px; margin: 1.5em auto;">
+    <span>image</span>
+  </div>
+  
+  <article>
+    <h1>{{ title }}</h1>
+    {{ body }}
+  </article>
+{% endcapture %}
+{% include 'layouts/default' %}
+
+
+
+
+
+
+
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +84,8 @@
         <p><a href="{{parent.url}}">&larr; Back to {{parent.title}}</a></p>
       {% endif %}
 
-    </section><!-- /content -->
-  </div><!-- /wrap -->
+    </section>
+  </div>
 </body>
 </html>
+-->
