@@ -7,10 +7,13 @@
     
     <title>{{site.title}} | {{title}}</title>
     
-    <link rel="stylesheet" href="assets/css/wireframe.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/assets/js/transition.js"></script>
+    <script src="/assets/js/collapse.js"></script>
   </head>
   
-  <body>
+  <body class="{{ title | slug | prepend: 'page--' }} {{ template | fallback: 'default' | prepend: 'template--' }}">
   
   <header id="site-header">
     {% include 'includes/nav' %}

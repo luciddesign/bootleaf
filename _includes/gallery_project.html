@@ -1,0 +1,70 @@
+{% comment %} <!-- Gallery Project --> {% endcomment %}
+
+{% assign template = 'gallery-project' %}
+{% capture content %}
+
+  <h1>{{ title }}</h1>
+  
+  <section class="project">
+    <aside class="project__gallery">
+      <div class="placeholder" style="height:400px;">
+        <span>Project Image</span>
+      </div>
+  <!--
+      <ul class="image-gallery__thumbs">
+        <li>
+          <div class="placeholder" style="height:100px;">
+            <span>Category Image</span>
+          </div> 
+        </li>
+        <li>
+          <div class="placeholder" style="height:100px;">
+            <span>Category Image</span>
+          </div> 
+        </li>
+        <li>
+          <div class="placeholder" style="height:100px;">
+            <span>Category Image</span>
+          </div> 
+        </li>
+        <li>
+          <div class="placeholder" style="height:100px;">
+            <span>Category Image</span>
+          </div> 
+        </li>
+        <li>
+          <div class="placeholder" style="height:100px;">
+            <span>Category Image</span>
+          </div> 
+        </li>
+        <li>
+          <div class="placeholder" style="height:100px;">
+            <span>Category Image</span>
+          </div> 
+        </li>
+      </ul>
+  -->
+    </aside>
+    
+    <article class="project__content">
+      <div class="lead">{{ body }}</div>
+    
+      <ul class="list-unstyled">
+        <li>Category: <a href="{{ parent.url }}">{{ parent.title }}</a></li>
+        {% for tagset in taxonomy %}
+          <li>{{tagset.key}}: {% for tag in tagset %}<a href="{{tag.url}}">{{tag.value}}</a>, {% endfor %}</li>
+        {% endfor %}
+      </ul>
+      
+<!--       <h3>Like what you see? <a href="/contact">contact us to request a quote</a></h3> -->
+    </article>
+  </section>
+  
+  <ul class="pager">
+    <li class="previous{% unless previous %} disabled{% endunless %}"><a href="{{ previous.url }}">&laquo; Previous project</a></li>
+    <li><a href="/gallery">View another category</a></li>
+    <li class="next{% unless next %} disabled{% endunless %}"><a href="{{ next.url }}">Next project &raquo;</a></li>
+  </ul>
+  
+{% endcapture %}
+{% include 'layouts/default' %}

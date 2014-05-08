@@ -1,5 +1,52 @@
+{% comment %} <!-- Root Index --> {% endcomment %}
+
+{% assign template = 'index' %}
 {% capture content %}
   <h1>{{ title }}</h1>
-  {{ body }}
+  <div class="lead">{{ body }}</div>
+  
+  {% assign gallery = site.pages['Gallery'] %}
+  
+  <section class="featured">
+    {% for subpage in gallery.pages %}
+      {% for post in subpage.posts %}
+        {% unless featured %}
+          {% assign featured = post %}
+        {% endunless %}
+        {% if post.published_at > featured.published_at %}
+          {% assign featured = post %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    
+    <aside class="featured__banner">
+      <a href="{{ featured.url }}">
+        <div class="placeholder" style="height:400px;">
+          <span>Featured Project Image</span>
+        </div>
+      </a>
+    </aside>
+    <article class="featured__content">
+      <h2><a href="{{ featured.url }}">{{ featured.title }}</a></h2>
+      {{ featured.excerpt }}
+      <a href="{{ featured.url }}">View Project &raquo;</a>
+    </article>
+  </section>
+  
+  <section class="gallery">
+    {% if gallery.pages %}
+      {% for subpage in gallery.pages %}
+        <div class="gallery__thumb">
+          <a href="{{ subpage.url }}">
+            <div class="placeholder" style="height:300px;">
+              <span>Category Image</span>
+            </div>
+          </a>
+          <h3><a href="{{ subpage.url }}">{{ subpage.title }}</a></h3>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </section>
+  
 {% endcapture %}
 {% include 'layouts/default' %}

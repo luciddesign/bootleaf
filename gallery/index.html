@@ -1,0 +1,25 @@
+{% comment %} <!-- Gallery Index --> {% endcomment %}
+
+{% assign template = 'index' %}
+{% capture content %}
+  <h1>{{ title }}</h1>
+  <div class="lead">{{ body }}</div>
+  
+  <section class="gallery">
+    {% if pages %}
+      {% for subpage in pages %}
+        <div class="gallery__thumb">
+          <a href="{{ subpage.url }}">
+            <div class="placeholder" style="height:300px;">
+              <span>Category Image</span>
+            </div>
+          </a>
+          
+          <h3><a href="{{ subpage.url }}">{{ subpage.title }}</a></h3>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </section>
+  
+{% endcapture %}
+{% include 'layouts/default' %}

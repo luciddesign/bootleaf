@@ -1,0 +1,116 @@
+{% comment %} <!-- Contact Index --> {% endcomment %}
+
+{% assign template = 'contact' %}
+{% capture content %}
+  <header>
+    <h1>{{ title }}</h1>
+  </header>
+  
+  <section class="contact jumbotron">
+    <h1>0800 XXX XXXX</h1>
+    <h3>email@designwindows.co.nz</h3>
+  </section>
+
+  <div class="row">
+    <section class="contact--branch">
+      <h3>Design Windows Branch Ltd.</h3>
+      <ul class="list-unstyled">
+        <li>Phone: 03 XXX XXXX</li>
+        <li>Fax: 03 XXX XXXX</li>
+        <li>Email: branch@designwindows.co.nz</li>
+      </ul>
+      <address>
+        Address line 1,<br>
+        Address line 2,<br>
+        Suburb
+      </address>
+      
+      <div class="placeholder" style="height:300px;">
+        <span>map</span>
+      </div>
+    </section>
+  
+    <section class="contact--branch">
+      <h3>Design Windows Branch Ltd.</h3>
+      <ul class="list-unstyled">
+        <li>Phone: 03 XXX XXXX</li>
+        <li>Fax: 03 XXX XXXX</li>
+        <li>Email: branch@designwindows.co.nz</li>
+      </ul>
+      <address>
+        Address line 1,<br>
+        Address line 2,<br>
+        Suburb
+      </address>
+      
+      <div class="placeholder" style="height:300px;">
+        <span>map</span>
+      </div>
+    </section>
+  
+    <section class="contact--branch">
+      <h3>Design Windows Branch Ltd.</h3>
+      <ul class="list-unstyled">
+        <li>Phone: 03 XXX XXXX</li>
+        <li>Fax: 03 XXX XXXX</li>
+        <li>Email: branch@designwindows.co.nz</li>
+      </ul>
+      <address>
+        Address line 1,<br>
+        Address line 2,<br>
+        Suburb
+      </address>
+      
+      <div class="placeholder" style="height:300px;">
+        <span>map</span>
+      </div>
+    </section>
+  
+    <section class="contact--branch">
+      <h3>Design Windows Branch Ltd.</h3>
+      <ul class="list-unstyled">
+        <li>Phone: 03 XXX XXXX</li>
+        <li>Fax: 03 XXX XXXX</li>
+        <li>Email: branch@designwindows.co.nz</li>
+      </ul>
+      <address>
+        Address line 1,<br>
+        Address line 2,<br>
+        Suburb
+      </address>
+      
+      <div class="placeholder" style="height:300px;">
+        <span>map</span>
+      </div>
+    </section>
+  </div>
+{% endcapture %}
+
+{% comment %}
+<!--
+  <h1>{{ title }}</h1>
+  <h2><a href="tel:{{ meta['phone'] }}">{{ meta['phone'] }}</a></h2>
+  <h3><a href="mailto:{{ meta['email'] }}?subject=Website Enquiry">{{ meta['email'] }}</a></h3>
+  {{ body }}
+  
+  {% if pages %}
+    {% for subpage in pages %}
+      <section class="branch">
+        <h3>{{ subpage.title }}</h3>
+        <p><a href="tel:{{ subpage.meta['phone'] }}">{{ subpage.meta['phone'] }}</a></p>
+        <p><a href="mailto:{{ subpage.meta['email'] }}?subject=Website Enquiry">{{ subpage.meta['email'] }}</a></p>
+        {% if subpage.meta['fax'] %}<p><a href="tel:{{ subpage.meta['phone'] }}">{{ subpage.meta['fax'] }}</a></p>{% endif %}
+        <address>{{ subpage.meta['address'] | markdown }}</address>
+        
+        {{ subpage.body }}
+        
+        {% if subpage.meta['map'] %}<iframe scrolling="no" frameborder="0" marginheight="0" marginwidth="0" src="{{ subpage.meta['map'] }}"></iframe>{% endif %}
+        
+      </section>
+    {% endfor %}
+  {% endif %}
+-->
+{% endcomment %}
+
+
+{% include 'layouts/default' %}

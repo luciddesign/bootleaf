@@ -37,7 +37,7 @@ nav {
   text-align: center;
 }
 
-.contact--branch {
+.contact--branch, .gallery__thumb {
   margin-bottom: 1.5em;
   text-align: left;
   @media (min-width: 50em) {
@@ -48,6 +48,23 @@ nav {
   }
   @media (min-width: 135em) {
     @include col-4;
+  }
+}
+
+.image-gallery {
+  margin-bottom: 1.5em;
+}
+.image-gallery__thumbs {
+  overflow: auto;
+  height: 100px;
+  li {
+    display: inline-block;
+    float: left;
+    width: 100px;
+    margin-left: 0.5em;
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }
 

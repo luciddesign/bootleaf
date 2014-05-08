@@ -1,7 +1,16 @@
-<nav>
-  <ul>
-  {% for page in site.pages %}
-    <li><a href="{{page.url}}"{% if page.url == url %} class="is-current-page"{% endif %}>{{page.title}}</a></li>
-  {% endfor %}
-  </ul>
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="navbar-container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-menu">Menu</button>
+      <a class="navbar-brand" href="/">Design Windows</a>
+    </div>
+  
+    <div class="collapse navbar-collapse" id="site-menu">
+      <ul class="nav navbar-nav">
+      {% for page in site.pages %}
+        <li{% if page.url == url %} class="active"{% endif %}><a href="{{page.url}}">{{page.title}}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
 </nav>

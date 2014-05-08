@@ -1,0 +1,7 @@
+{% comment %} <!-- Gallery Default --> {% endcomment %}
+
+{% if parent.slug == "gallery" %}
+  {% include 'includes/gallery_category' %}
+{% else %}
+  {% include 'includes/gallery_project' %}
+{% endif %}
