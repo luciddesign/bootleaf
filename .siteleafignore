@@ -6,6 +6,6 @@ config.ru
 package.json
 bower.json
 
-bower_components
-node_modules
-src
+bower_components/*
+node_modules/*
+src/*
