@@ -129,9 +129,17 @@ small {
   margin-bottom: 1.5em;
 }
 
-.contact__block {
+.contact__wrapper--form, .contact__wrapper--branch {
   @include make-xs-column(12);
   @include make-md-column(6);
+}
+
+.contact__wrapper--form {
+  @include make-md-column-pull(6);
+}
+
+.contact__wrapper--branch {
+  @include make-md-column-push(6);
 }
 
 .contact--branch {
