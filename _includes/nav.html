@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="site-menu">
       <ul class="nav navbar-nav">
       {% for page in site.pages %}
-        <li{% if page.url == url %} class="active"{% endif %}><a href="{{page.url}}">{{page.title}}</a></li>
+        <li{% if page.url == url %} class="active"{% endif %}><a href="{{ page.url }}">{{ page.slug | capitalize }}</a></li>
       {% endfor %}
       </ul>
     </div>

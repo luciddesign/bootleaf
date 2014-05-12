@@ -1,40 +1,66 @@
 {% comment %} <!-- Root Index --> {% endcomment %}
 
 {% assign template = 'index' %}
+
+{% capture banner %}
+<div class="banner">
+  <div class="placeholder">
+    <span>Banner Image</span>
+  </div>
+</div>
+{% endcapture %}
+
 {% capture content %}
-  <h1>{{ title }}</h1>
-  <div class="lead">{{ body }}</div>
-  
-  {% assign gallery = site.pages['Gallery'] %}
-  
-  <section class="featured">
-    {% for subpage in gallery.pages %}
-      {% for post in subpage.posts %}
-        {% unless featured %}
-          {% assign featured = post %}
-        {% endunless %}
-        {% if post.published_at > featured.published_at %}
-          {% assign featured = post %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-    
-    <aside class="featured__banner">
-      <a href="{{ featured.url }}">
-        <div class="placeholder" style="height:400px;">
-          <span>Featured Project Image</span>
+  <section class="home">
+    <div class="row">
+      <div class="home__content">
+        <h1>{{ title }}</h1>
+        <div class="lead copy">{{ body }}</div>
+      </div>
+      <div class="home__call-to-action">
+        <div class="placeholder" style="height:200px;">
+          <span>Call to action</span>
         </div>
-      </a>
-    </aside>
-    <article class="featured__content">
-      <h2><a href="{{ featured.url }}">{{ featured.title }}</a></h2>
-      {{ featured.excerpt }}
-      <a href="{{ featured.url }}">View Project &raquo;</a>
-    </article>
+      </div>
+    </div>
   </section>
   
+  {% assign gallery = site.pages['Gallery'] %}
+  {% for subpage in gallery.pages %}
+    {% for post in subpage.posts %}
+      {% unless featured %}
+        {% assign featured = post %}
+      {% endunless %}
+      {% if post.published_at > featured.published_at %}
+        {% assign featured = post %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+      
+  <section class="featured">
+    <h2>Featured Project</h2>
+    <div class="row">
+      <aside class="featured__banner">
+        <a href="{{ featured.url }}">
+          <div class="placeholder" style="height:400px;">
+            <span>Featured Project Image</span>
+          </div>
+        </a>
+      </aside>
+      <article class="featured__content ">
+        <h2><a href="{{ featured.url }}">{{ featured.title }}</a></h2>
+        <div class="copy">
+          {{ featured.excerpt }}
+          <a href="{{ featured.url }}">View Project &raquo;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+  
+{% if gallery.pages %}
   <section class="gallery">
-    {% if gallery.pages %}
+    <h2>Project Categories</h2>
+    <div class="row">
       {% for subpage in gallery.pages %}
         <div class="gallery__thumb">
           <a href="{{ subpage.url }}">
@@ -45,8 +71,9 @@
           <h3><a href="{{ subpage.url }}">{{ subpage.title }}</a></h3>
         </div>
       {% endfor %}
-    {% endif %}
+    </div>
   </section>
+{% endif %}
   
 {% endcapture %}
 {% include 'layouts/default' %}

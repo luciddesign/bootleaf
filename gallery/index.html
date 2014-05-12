@@ -3,23 +3,25 @@
 {% assign template = 'index' %}
 {% capture content %}
   <h1>{{ title }}</h1>
-  <div class="lead">{{ body }}</div>
+  <div class="lead copy">{{ body }}</div>
   
+  {% if pages %}
   <section class="gallery">
-    {% if pages %}
-      {% for subpage in pages %}
-        <div class="gallery__thumb">
-          <a href="{{ subpage.url }}">
-            <div class="placeholder" style="height:300px;">
-              <span>Category Image</span>
-            </div>
-          </a>
-          
-          <h3><a href="{{ subpage.url }}">{{ subpage.title }}</a></h3>
-        </div>
-      {% endfor %}
-    {% endif %}
+    <div class="row">
+    {% for subpage in pages %}
+      <div class="gallery__thumb">
+        <a href="{{ subpage.url }}">
+          <div class="placeholder" style="height:300px;">
+            <span>Category Image</span>
+          </div>
+        </a>
+        
+        <h3><a href="{{ subpage.url }}">{{ subpage.title }}</a></h3>
+      </div>
+    {% endfor %}
+    </div>
   </section>
+  {% endif %}
   
 {% endcapture %}
 {% include 'layouts/default' %}

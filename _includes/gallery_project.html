@@ -6,65 +6,68 @@
   <h1>{{ title }}</h1>
   
   <section class="project">
-    <aside class="project__gallery">
-      <div class="placeholder" style="height:400px;">
-        <span>Project Image</span>
-      </div>
-  <!--
-      <ul class="image-gallery__thumbs">
-        <li>
-          <div class="placeholder" style="height:100px;">
-            <span>Category Image</span>
-          </div> 
-        </li>
-        <li>
-          <div class="placeholder" style="height:100px;">
-            <span>Category Image</span>
-          </div> 
-        </li>
-        <li>
-          <div class="placeholder" style="height:100px;">
-            <span>Category Image</span>
-          </div> 
-        </li>
-        <li>
-          <div class="placeholder" style="height:100px;">
-            <span>Category Image</span>
-          </div> 
-        </li>
-        <li>
-          <div class="placeholder" style="height:100px;">
-            <span>Category Image</span>
-          </div> 
-        </li>
-        <li>
-          <div class="placeholder" style="height:100px;">
-            <span>Category Image</span>
-          </div> 
-        </li>
-      </ul>
-  -->
-    </aside>
-    
-    <article class="project__content">
-      <div class="lead">{{ body }}</div>
-    
-      <ul class="list-unstyled">
-        <li>Category: <a href="{{ parent.url }}">{{ parent.title }}</a></li>
-        {% for tagset in taxonomy %}
-          <li>{{tagset.key}}: {% for tag in tagset %}<a href="{{tag.url}}">{{tag.value}}</a>, {% endfor %}</li>
-        {% endfor %}
-      </ul>
+    <div class="row">
+      <aside class="project__gallery">
+        <div class="placeholder" style="height:400px;">
+          <span>Project Image</span>
+        </div>
+        <ul class="image-gallery__thumbs">
+          <li>
+            <div style="height:100px;">Project Image Thumb</div>
+          </li>
+          <li>
+            <div style="height:100px;">Project Image Thumb</div>
+          </li>
+          <li>
+            <div style="height:100px;">Project Image Thumb</div>
+          </li>
+          <li>
+            <div style="height:100px;">Project Image Thumb</div>
+          </li>
+        </ul>
+      </aside>
       
-<!--       <h3>Like what you see? <a href="/contact">contact us to request a quote</a></h3> -->
-    </article>
+      <article class="project__content">
+        <div class="copy">
+          {{ body }}
+        
+          <ul class="list-unstyled">
+            <li>Category: <a href="{{ parent.url }}">{{ parent.title }}</a></li>
+            {% for tagset in taxonomy %}
+              <li>{{tagset.key}}: {% for tag in tagset %}<a href="{{tag.url}}">{{tag.value}}</a>, {% endfor %}</li>
+            {% endfor %}
+          </ul>
+        
+          <h4>Like what you see?</h4>
+          <a href="/contact" class="btn btn-primary">Contact us to request a quote</a>
+        </div>
+      </article>
+    </div>
   </section>
   
-  <ul class="pager">
-    <li class="previous{% unless previous %} disabled{% endunless %}"><a href="{{ previous.url }}">&laquo; Previous project</a></li>
-    <li><a href="/gallery">View another category</a></li>
-    <li class="next{% unless next %} disabled{% endunless %}"><a href="{{ next.url }}">Next project &raquo;</a></li>
-  </ul>
+  {% assign gallery = parent %}
+  {% assign post_count = gallery.posts.size | minus: 1 %}
+  {% if post_count > 0 %}
+  <section class="gallery">
+    <h2>Other projects in {{ gallery.title }}</h2>
+    <div class="row">
+    {% for subpage in gallery.posts %}
+      {% unless subpage.title == title %}        
+        <div class="gallery__thumb">
+          <a href="{{ subpage.url }}">
+            <div class="placeholder" style="height:300px;">
+              <span>Project Image</span>
+            </div>
+          </a>
+          <h3><a href="{{ subpage.url }}">{{ subpage.title }}</a></h3>
+        </div>
+      {% endunless %}
+    {% endfor %}
+    </div>
+  </section>
+  {% else %}
+    <h4><a href="/gallery">View more projects</a></h4>
+  {% endif %}
   
 {% endcapture %}
 {% include 'layouts/default' %}
