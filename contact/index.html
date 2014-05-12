@@ -2,7 +2,7 @@
 
 {% assign template = 'contact' %}
 {% capture content %}
-  <header>
+  <header class="page-header">
     <h1>{{ title }}</h1>
   </header>
   
@@ -12,16 +12,6 @@
   </section>
 
 <div class="row">
-  <div class="contact__block">
-      <div class="row">
-        <section class="contact--form">
-          <div class="placeholder" style="height:600px;">
-            <span>WuFoo Contact Form</span>
-          </div>
-        </section>
-      </div>
-  </div>
-  
   <div class="contact__block">
     <div class="row">
       <section class="contact--branch">
@@ -96,7 +86,16 @@
         </div>
       </section>
     </div>
+  </div>
   
+  <div class="contact__block">
+      <div class="row">
+        <section class="contact--form">
+          <div class="placeholder" style="height:600px;">
+            <span>WuFoo Contact Form</span>
+          </div>
+        </section>
+      </div>
   </div>
 </div>
 {% endcapture %}

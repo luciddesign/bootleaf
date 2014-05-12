@@ -2,14 +2,30 @@
   <div class="navbar-container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-menu">Menu</button>
-      <a class="navbar-brand" href="/">Design Windows</a>
+      <a class="navbar-brand" href="/">Design Windows Logo</a>
     </div>
   
     <div class="collapse navbar-collapse" id="site-menu">
       <ul class="nav navbar-nav">
-      {% for page in site.pages %}
-        <li{% if page.url == url %} class="active"{% endif %}><a href="{{ page.url }}">{{ page.slug | capitalize }}</a></li>
+      {% for nav_page in site.pages %}
+        <li{% if nav_page.url == url or nav_page.url == parent.url or nav_page.url == parent.parent.url %} class="active"{% endif %}>
+        {% if nav_page.slug == 'gallery' %}
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ nav_page.slug | capitalize }} <i class="caret"></i></a>
+          <ul class="dropdown-menu">
+            {% for subpage in nav_page.pages %}
+              <li{% if subpage.url == url or subpage.url == parent.url %} class="active"{% endif %}><a href="{{ subpage.url }}">{{ subpage.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <a href="{{ nav_page.url }}">{{ nav_page.slug | capitalize }}</a>
+        {% endif %}
+        </li>
       {% endfor %}
+      </ul>
+      
+      {% assign contact_page = site.pages['contact'] %}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ contact_page.meta['phone'] }}">{{ contact_page.meta['phone'] }}</a></li>
       </ul>
     </div>
   </div>

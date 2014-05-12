@@ -2,7 +2,9 @@
 
 {% assign template = 'index' %}
 {% capture content %}
-  <h1>{{ title }}</h1>
+  <header class="page-header">
+    <h1>{{ title }}</h1>
+  </header>
   <div class="lead copy">{{ body }}</div>
   
   {% if pages %}

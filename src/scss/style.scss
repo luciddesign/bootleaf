@@ -64,7 +64,6 @@ small {
 }
 
 %wrapper {
-  overflow: auto;
   width: 96%;
   max-width: 95em;
   margin: auto;
@@ -104,6 +103,11 @@ small {
       height: 600px;
     }
   }
+}
+
+.page-header {
+  padding: 0;
+  margin: 0.5em 0 1.5em;
 }
 
 .template--contact .jumbotron {
